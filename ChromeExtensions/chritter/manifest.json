@@ -1,0 +1,18 @@
+{
+  "name": "Chritter",
+  "version": "1.0",
+  "description": "A Twitter Button for your toolbar",
+  "icons": {
+    "128": "icon.png"
+  },
+  "browser_action": {
+    "default_title": "Chritterrr",
+    "default_icon": "icon.png",
+    "default_popup": "chritter.html"
+  },
+  "permissions": [
+    "http://twitter.com/*",
+    "tabs"
+  ],
+  "manifest_version": 2,
+}

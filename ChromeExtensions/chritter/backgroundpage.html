@@ -1,0 +1,50 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        var fetchFreq = 10000;
+        var req;
+        var unreadCount = 0;
+        var tweets;
+
+        getTweets()
+        setInterval(getTweets, fetchFreq);
+
+        function getTweets(){
+            req = new XMLHttpRequest();
+            req.open('GET','http://twitter.com/statuses/public_timeline.json');
+            req.onload = processTweets;
+            req.send();
+        }
+
+        function init() {
+            chrome.browserAction.setBadgeText({text: ''})
+            bg = chrome.extension.getBackgroundPage();
+            bg.unreadCount = 0;
+
+            for(var i in bg.tweets){
+                user = bg.tweets[i].user;
+                url = "http://twitter.com/"+ user.screen_name;
+            }
+        }
+
+        function processTweets(){
+            var res = JSON.parse(req.responseText);
+            unreadCount += res.length;
+
+            if(unreadCount > 0){
+                chrome.browserAction.setBadgeBackgroundColor({
+                    color: [255, 0, 0, 255]
+                });
+                chrome.browserAction.setBadgeText({text: ""+ unreadCount});
+            }
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
