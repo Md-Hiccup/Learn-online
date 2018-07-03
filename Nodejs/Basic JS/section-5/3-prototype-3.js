@@ -35,5 +35,5 @@ var jim = {
     }
 }
 
-var a = _.extend(john, jane, jim);
-console.log(a)
+_.extend(john, jane, jim);      // It extends the john object with both jane and jim object properties 
+console.log(john)
