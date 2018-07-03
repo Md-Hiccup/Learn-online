@@ -19,12 +19,12 @@ var c = {
     name: 'The c object',
     log: function() {
 
-        var self = this;        //  self or this is pointing to the whold log function or log function object
+        var self = this;        //  self or this is pointing to the whole log function or log function object
 
         self.name = 'Updated c object';
         console.log(self);      
 
-        // comment it from 25-29 when checking line 33 and  34
+        // comment it from 28-32 when checking line 36 and  37
         var setname = function (newname){
             self.name = newname;
         }
@@ -33,11 +33,11 @@ var c = {
     }
 }
 
-// c.log();    // 4.   { name : 'The c object', log: function }; if line 21 is commented
-// c.log();    // 5.   { name : 'Updated c object', log: function };   if line 21 is there
+// c.log();    // 4.   { name : 'The c object', log: function }; if line 22 is commented
+// c.log();    // 5.   { name : 'Updated c object', log: function };   if line 22 is there
 
 c.log();
-// 6.   { name : 'Updated c object', log: function }; IT is not changing by setname('Updated again! The c object')
+// 6.   { name : 'Updated c object', log: function }; IT is not changing by setname('Updated again! The c object');
 // because now, 'this' points to global object so , it created a 'name' variable globally
-// For fixing this issue use ' var self = this;'
+// For fixing this issue use: 'var self = this;'
 

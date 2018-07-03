@@ -4,7 +4,7 @@ function greet(whattosay) {
     }
 }
 
-greet('Hi')('Tony');
+greet('Hi')('Tony');        // 1.   Hi Tony
 
 var sayHi = greet('Hi');
-sayHi('Tonyy..');
+sayHi('Tonyy..');           // 2.   Hi Tonyy..
