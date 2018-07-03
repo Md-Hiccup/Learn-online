@@ -25,5 +25,5 @@ var chk = {
         setFn('Update the log');
     }
 }
-d
+
 chk.log();
