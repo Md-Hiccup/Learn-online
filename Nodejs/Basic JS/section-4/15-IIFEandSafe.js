@@ -16,6 +16,6 @@ console.log(greeting);                  // 2.   Hola
     global.greeting = "hello ";          // override the 'global' object 'greeting' variable from 'Hola' to 'Hello' 
     console.log(greeting + name);
 
-}(window, 'john'));                 // window is not working on node so open in the browser for checking the code
+}(window, 'john'));                 // NOTE: window is not working on node so open in the browser for checking the code
 
 console.log(greeting)
