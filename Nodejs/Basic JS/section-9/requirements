@@ -1,0 +1,9 @@
+1. Greeter // For Greeting like when people login
+    When given a first name, last name, and optional language, 
+    it generates formal and informal greetings.
+
+    Support English and Spanish languages.
+
+    Reusable library / framework.
+
+    Easy to type 'G$()' structure
