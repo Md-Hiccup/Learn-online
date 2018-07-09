@@ -131,7 +131,7 @@ router.post(
           ) {
             return res
               .status(400)
-              .json({ alreadyliked: "You have not yet liked this post" });
+              .json({ notliked: "You have not yet liked this post" });
           }
 
           // Get remove index
