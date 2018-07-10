@@ -1,0 +1,67 @@
+<!-- <!DOCTYPE html> -->
+<html>
+
+<head>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <meta charset="utf-8">
+  <title>Retrieving an Address for a Place ID</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+  <div>
+    <!-- Supply a default place ID for a place in Brooklyn, New York. -->
+    <label>Zip</label>
+    <input id="zip" type="text">
+    <label>City</label>
+    <input id="city" type="text">
+    <label>State</label>
+    <input id="state" type="text">
+    <input type="submit" id="button" value="Search" />
+    <script>
+      $(document).ready(function () {
+        $('#zip').on('keyup', function () {
+
+          var zip = $(this).val();
+          var city = '';
+          var state = '';
+          if (zip.toString().length === 6) {
+            // var url = "https://pincode.saratchandra.in/api/pincode/" + zip;
+            var url = "http://maps.googleapis.com/maps/api/geocode/json?address="+ zip;
+            $.ajax({
+              type: 'GET',
+              url: url,
+            }).done(function (response) {
+              console.log(response)
+              // find the city and state
+              var address_components = response.results[0].address_components;
+              $.each(address_components, function (index, component) {
+                var types = component.types;
+                console.log(component)
+                $.each(types, function (index, type) {
+
+                  if (type === 'administrative_area_level_2') {
+                    city = component.long_name;
+                  }
+                  if (type === 'administrative_area_level_1') {
+                    state = component.long_name;
+
+                  }
+                });
+              });
+              $('#city').val(city);
+              $('#state').val(state);
+
+              console.log(city);
+              console.log(state)
+            })
+          }
+        });
+      })
+
+    </script>
+  </div>
+</body>
+
+</html>

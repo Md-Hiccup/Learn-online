@@ -1,0 +1,11 @@
+{
+  "manifest_version": 2,
+  "name": "Browser Cleaner",
+  "version": "1.0",
+  "description": "Clear All Browsing Data",
+  "permissions": ["browsingData", "declarativeContent", "storage"],
+  "browser_action": {
+      "default_title": "Browser Cleaner",
+      "default_popup": "popup.html"
+  }
+}
