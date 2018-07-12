@@ -8,7 +8,8 @@ import { clearCurrentProfile } from "./actions/profileActions";
 import { Provider } from "react-redux";
 // Provider is react component which provides application with store(which holds state).
 import store from "./store";
-import PrivateRoute from './components/common/PrivateRoute';
+
+import PrivateRoute from "./components/common/PrivateRoute";
 
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
@@ -17,6 +18,7 @@ import Landing from "./components/layout/Landing";
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
 import Dashboard from "./components/dashboard/Dashboard";
+import CreateProfile from "./components/create-profile/CreateProfile";
 
 import "./App.css";
 
@@ -37,7 +39,7 @@ if (localStorage.jwtToken) {
     // ToDo: Clear current Profile
     store.dispatch(clearCurrentProfile());
     // Redirect to login
-    window.location.href = '/login';
+    window.location.href = "/login";
   }
 }
 
@@ -54,7 +56,14 @@ class App extends Component {
               <Route exact path="/login" component={Login} />
               <Switch>
                 <PrivateRoute exact path="/dashboard" component={Dashboard} />
-              </Switch>  
+              </Switch>
+              <Switch>
+                <PrivateRoute
+                  exact
+                  path="/create-profile"
+                  component={CreateProfile}
+                />
+              </Switch>
             </div>
             <Footer />
           </div>
