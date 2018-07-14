@@ -25,7 +25,7 @@ class ProfileGithub extends Component {
       .then(data => {
         if (this.refs.myRef) {
           this.setState({ repos: data });
-          console.log(this.state.repos)
+          // console.log(this.state.repos)
         }
       })
       .catch(err => console.log(err));
@@ -39,9 +39,8 @@ class ProfileGithub extends Component {
         <div className="row">
           <div className="col-md-6">
             <h4>
-              <Link to={repo.html_url} className="text-info" taregt="_blank">
-                {repo.name}
-              </Link>
+              <a href={repo.html_url} className="text-info">{repo.name}</a>
+              {/* <Link to={repo.html_url} className="text-info">{repo.name}</Link> */}
             </h4>
             <p>{repo.description}</p>
           </div>

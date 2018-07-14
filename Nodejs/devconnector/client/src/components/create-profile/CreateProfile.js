@@ -159,7 +159,15 @@ class CreateProfile extends Component {
                   error={errors.status}
                   info="Give us an idea of where you are at in your career."
                 />
-
+                <SelectListGroup
+                  placeholder="Company"
+                  name="company"
+                  value={this.state.company}
+                  onChange={this.onChange}
+                  options={options}
+                  error={errors.company}
+                  info="Give us an idea of where you are at in your career."
+                />
                 <TextFieldGroup
                   placeholder="Website"
                   name="website"
