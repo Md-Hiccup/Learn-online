@@ -7,3 +7,5 @@ Nodejs/devconnector/client/node_modules
 Nodejs/devconnector/client/README.md
 
 .vscode
+
+Nodejs/devconnector/config/keys_dev.js
